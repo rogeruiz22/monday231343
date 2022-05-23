@@ -1,20 +1,23 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class AppTest {
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void firstTest() throws Exception {
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://login.salesforce.com");
+
+        String pageTitle = driver.getTitle();
+
+        Assert.assertEquals(pageTitle, "Login | Salesforce", "The page is not loading");
+
+        driver.quit();
+
     }
 }
